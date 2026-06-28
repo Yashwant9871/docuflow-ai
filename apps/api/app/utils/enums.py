@@ -1,0 +1,74 @@
+import enum
+
+class DocumentStatus(str, enum.Enum):
+    UPLOADED = "UPLOADED"
+    PROCESSING = "PROCESSING"
+    EXTRACTED = "EXTRACTED"
+    VALIDATION_FAILED = "VALIDATION_FAILED"
+    NEEDS_REVIEW = "NEEDS_REVIEW"
+    READY_FOR_APPROVAL = "READY_FOR_APPROVAL"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+    EXPORTED = "EXPORTED"
+
+class RoleName(str, enum.Enum):
+    ADMIN = "ADMIN"
+    PROCESSOR = "PROCESSOR"
+    REVIEWER = "REVIEWER"
+    APPROVER = "APPROVER"
+
+class VendorStatus(str, enum.Enum):
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+    ON_HOLD = "ON_HOLD"
+
+class POStatus(str, enum.Enum):
+    OPEN = "OPEN"
+    PARTIALLY_USED = "PARTIALLY_USED"
+    CLOSED = "CLOSED"
+    ON_HOLD = "ON_HOLD"
+
+class ValidationStatus(str, enum.Enum):
+    PASSED = "PASSED"
+    FAILED = "FAILED"
+    WARNING = "WARNING"
+
+class Severity(str, enum.Enum):
+    CRITICAL = "CRITICAL"
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+
+class FieldStatus(str, enum.Enum):
+    OK = "OK"
+    LOW_CONFIDENCE = "LOW_CONFIDENCE"
+    CORRECTED = "CORRECTED"
+    MISSING = "MISSING"
+
+class ReviewTaskStatus(str, enum.Enum):
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+
+class ApprovalAction(str, enum.Enum):
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+
+class AuditAction(str, enum.Enum):
+    USER_LOGIN = "USER_LOGIN"
+    DOCUMENT_UPLOADED = "DOCUMENT_UPLOADED"
+    DOCUMENT_PROCESSED = "DOCUMENT_PROCESSED"
+    STATUS_CHANGED = "STATUS_CHANGED"
+    VALIDATION_RUN = "VALIDATION_RUN"
+    FIELD_CORRECTED = "FIELD_CORRECTED"
+    SENT_TO_REVIEW = "SENT_TO_REVIEW"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+    EXPORTED = "EXPORTED"
+    VENDOR_CREATED = "VENDOR_CREATED"
+    PURCHASE_ORDER_CREATED = "PURCHASE_ORDER_CREATED"
+
+class Priority(str, enum.Enum):
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
