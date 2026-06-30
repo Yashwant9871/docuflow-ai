@@ -8,14 +8,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy configuration files
-COPY pyproject.toml ./
-
-# Install python dependencies
-RUN pip install --no-cache-dir .
-
-# Copy application files
+# Copy all application files first so setuptools can discover the packages
 COPY . .
+
+# Install python dependencies and package
+RUN pip install --no-cache-dir .
 
 # Expose FastAPI port
 EXPOSE 8000

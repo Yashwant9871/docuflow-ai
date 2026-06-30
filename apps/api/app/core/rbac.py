@@ -24,4 +24,4 @@ class RoleChecker:
         )
 
 def require_roles(*roles: str):
-    return Depends(RoleChecker(list(roles)))
+    return RoleChecker(list(roles))

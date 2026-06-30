@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.db.base import Base
 from app.core.config import settings
 from app.api.v1 import api_router
 from app.db.session import engine
-from app.db.base import Base
 from app.db.init_db import init_db
 from app.db.session import SessionLocal
 import os
@@ -45,4 +45,8 @@ def on_startup():
 
 @app.get("/health")
 def health():
+    return {"status": "ok"}
+
+@app.get("/api/v1/health")
+def health_api():
     return {"status": "ok"}
