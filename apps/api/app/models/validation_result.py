@@ -20,3 +20,10 @@ class ValidationResult(Base):
 
     # Relationships
     document = relationship("Document", back_populates="validation_results")
+
+    def __init__(self, **kwargs):
+        if "expected" in kwargs:
+            kwargs["expected_value"] = kwargs.pop("expected")
+        if "actual" in kwargs:
+            kwargs["actual_value"] = kwargs.pop("actual")
+        super().__init__(**kwargs)
